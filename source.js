@@ -76,26 +76,30 @@ var shuffle = function(cardss)
     }
     return cardss;
 };
-
-var game = $(".game");
+//jquery code
+var game = $(".game");//document.querySelector document.getELementsByClassName
 var hard = $("button.hard");
 var normal = $("button.normal");
 var menu= $(".menu");
 var end = $(".end");
 var overlay = $(".end-overlay");
 var restart = $("button.restart");
-var timer = document.querySelector(".timer");
 var paused = false;
 var guess = null;
 var cardsArray =[];
 var shufflecards = shuffle(cardsArray);
-var memoryCards = $(".card");
-var finalTime ;
 game.hide();
+//js code
 var interval;
+var finalTime ;
+var timer = document.querySelector(".timer");
 var minute = 0;
 var second = 0;
 var hour = 0;
+var moveCounter =0;
+var moves= document.querySelector(".moves") ;
+var finalmoves;
+
 
 function startTimer(){
     interval = setInterval(function(){
@@ -114,24 +118,27 @@ function startTimer(){
 
 var clicked = function()
 {
-    console.log(1)
-    var card = $(this);
-    if(!paused && !card.find(".inside").hasClass("matched") && !card.find(".inside").hasClass("picked"))
+    var card = $(this);//this
+    if(!paused && !card.find(".inside").hasClass("matched") && !card.find(".inside").hasClass("picked")) //find= querySelector , hasClass = classlist.contains, addClass = classList.add
     {   
         card.find(".inside").addClass("picked");
         if(!guess){
-            guess = card.attr("data-num");
-        } else if(guess == card.attr("data-num") && !card.hasClass("picked")){
+            guess = card.attr("data-num"); // getattribute
+            } 
+        else if(guess == card.attr("data-num") && !card.hasClass("picked")){
             $(".picked").addClass("matched");
             guess = null;
+            moveCounter++;
         } else {
             guess = null;
             paused = true;
+            moveCounter++;
             setTimeout(function(){
                 $(".picked").removeClass("picked");
                 paused = false;
             }, 600);
         }
+        console.log(moveCounter);
         if($(".matched").length == $(".card").length){
             victory();
         }
@@ -140,27 +147,29 @@ var clicked = function()
 
 
 
-hard.click(function(){
+hard.click(function()
+{
     cardsArray = cards.concat(cards);
     shuffle(cardsArray);
     html = build();
-    game.html(html);
-    menu.hide();
+    game.html(html); //.html()= .innerHTML
+    menu.hide(); //visibility = "hidden"
     game.show("slow");
-    memoryCards = $(".card");
+    memoryCards = $(".card"); //assign card div, to memoryCards variable which turns into an objenct
     startTimer();
-    memoryCards.on("click", victory);
-    return; 
+    memoryCards.on("click", clicked); //.onclick
+
 })
 
-normal.click(function(){
+normal.click(function()
+{
     for(x = cards.length-1 ; x >= 8; x--)
     {
         cards.pop();
     }
     cardsArray = cards.concat(cards);
     shuffle(cardsArray);
-    game.addClass("easy");
+    game.addClass("easy"); //.classlist.add("")
     html = build();
     game.html(html);
     menu.hide();
@@ -168,8 +177,7 @@ normal.click(function(){
     memoryCards = $(".card");
     startTimer();
     memoryCards.on("click", clicked);
-    return; 
- 
+
 })
 
 
@@ -186,15 +194,15 @@ var victory = function()
 {
     clearInterval(interval);
     finalTime = minute + " minute " + second + " seconds";
-    timer.innerHTML = finalTime;
-    console.log(timer);
+    finalmoves = "and " + moveCounter + " moves";
+    timer.innerHTML = finalTime; //.html()
+    moves.innerHTML = finalmoves;
+  //  console.log(timer);
     paused = true;
     setTimeout(function(){
         showEndScreen();
-        game.fadeOut();
+        game.fadeOut(); //game.overlay.style.visibility = "hidden";
 
     }, 1000);
 };
 
-
-memoryCards.on("click", victory);

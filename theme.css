@@ -41,8 +41,8 @@
   font-family: "Anton", sans-serif;
   color: #4d4d4d;
   position: absolute;
-  left:25%;
-  top:20%;
+  left:43%;
+  top:23%;
   }
 
  .normal , .hard{
@@ -68,7 +68,7 @@
 {
   position: absolute;
   top:47%;
-  left: 46%;
+  left: 40.5%;
 }
 
   .card {
@@ -153,7 +153,7 @@
     font-size: 30px;
     position: relative;
     top: 55%;
-    left:28%;
+    left:31%;
     font-family: "Anton", sans-serif;
     color: #4d4d4d;
     text-shadow: 0px 1px 0 black;  
@@ -164,6 +164,17 @@
     position: relative;
     top: 45%;
     left:28%;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 1px 0 black;  
+
+  }
+
+  .end .moves{
+    font-size: 20px;
+    position: relative;
+    top: 45%;
+    left:34%;
     font-family: "Anton", sans-serif;
     color: #4d4d4d;
     text-shadow: 0px 1px 0 black;  
