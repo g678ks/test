@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background: grey;
+
+    font-family: "Arial";
+  }
+  .cover {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    padding-bottom: 10px;
+  }
+  .game {
+    position: relative;
+    transform-style: preserve-3d;
+    min-height: 100%;
+    left: 5%;
+    width: 1320px;
+    height: 500px;
+  }
+  @keyframes matchAnim {
+    0% {
+      background: #bcffcc;
+    }
+    100% {
+      background: white;
+    }
+  }
+ .easy{
+   position: absolute;
+    transform-style: preserve-3d;
+    width: 900px;
+  left: 20%;
+  }
+  
+  .level{
+  font-size: 50px;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  color: #4d4d4d;
+  position: absolute;
+  left:43%;
+  top:23%;
+  }
+
+ .normal , .hard{
+  position: absolute;
+  left: 45%;
+  top: 35%;  
+  font-family: "Anton", sans-serif;
+	margin: 30px auto;
+	padding: 20px 30px;
+	display: block;
+	font-size: 30px;
+	border: none;
+	background: #4d4d4d;
+	background: linear-gradient(#4d4d4d, #222);
+	border: 1px solid #222;
+	border-radius: 5px;
+	color: white;
+	text-shadow: 0px 1px 0 black;
+	cursor: pointer;
+}
+
+.hard
+{
+  position: absolute;
+  top:47%;
+  left: 40.5%;
+}
+
+  .card {
+    float: left;
+    width: 220px;
+    height: 25%;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+  .card .inside {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform-style: preserve-3d;
+    transition: 0.5s ease-in-out;
+    background: white;
+  }
+  .card .inside.picked, .card .inside.matched {
+    transform: rotateY(180deg);
+  }
+  .card .inside.matched {
+    animation: 1s matchAnim ease-in-out;
+    animation-delay: 0.4s;
+  }
+  .card .front, .card .back {
+    border: 1px solid black;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
+  .card .front img, .card .back {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+  }
+  .card .front {
+    transform: rotateY(-180deg);
+  }
+  .card .back {
+    transform: rotateX(0);
+  }
+  .end-overlay {
+    display: none;
+    background: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .end {
+    display: none;
+    position: relative;
+    width: 500px;
+    height: 400px;
+    min-height: 380px;
+    margin: 0 auto;
+    background: white;
+    top: 50%;
+    transform: translateY(-50%);
+    
+	padding: 30px 10px;
+  }
+  .end .winner {
+    font-size: 64px;
+    position: absolute;
+    top: 0 ;
+    left: 20%;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 2px 0 black;
+  }
+  .end .time{
+    font-size: 30px;
+    position: relative;
+    top: 55%;
+    left:31%;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 1px 0 black;  
+  }
+
+  .end .timer{
+    font-size: 20px;
+    position: relative;
+    top: 45%;
+    left:28%;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 1px 0 black;  
+
+  }
+
+  .end .moves{
+    font-size: 20px;
+    position: relative;
+    top: 45%;
+    left:34%;
+    font-family: "Anton", sans-serif;
+    color: #4d4d4d;
+    text-shadow: 0px 1px 0 black;  
+
+  }
+
+  .end .restart {
+    font-family: "Anton", sans-serif;
+    margin: 30px auto;
+    padding: 20px 30px;
+    display: block;
+    font-size: 30px;
+    border: none;
+    background: #4d4d4d;
+    background: linear-gradient(#4d4d4d, #222);
+    border: 1px solid #222;
+    border-radius: 5px;
+    color: white;
+    text-shadow: 0px 1px 0 black;
+    cursor: pointer;
+    position: absolute;
+    left:24%;
+    top: 82%;
+  }
