@@ -5,15 +5,19 @@
     </head>
     <body>
         <div class="cover">
-                <div class="score">
-                        <div class="moves"></div>
-                        <div class="timer"></div>
-                    </div>
+                   <div class="menu"> 
+                     <h2 class="level">What Difficulty do you want to play on? </h2>
+                <button class="normal">Normal</button>
+                <button class="hard">Hard</button>
+            </div>
             <div class="game"></div>
-            
             <div class="end-overlay">
                 <div class="end">
                     <h2 class="winner">We got a Winner!!!</h2>
+                    <h4 class="time">It took you</h4>
+                    <div class="timer"></div>
+                    <div class="moves"></div>
+                    <button class="restart" value="Refresh Page" onClick="window.location.reload()">Play Again?</button>
                 </div>    
             </div>
         </div>
