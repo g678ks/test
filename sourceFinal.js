@@ -36,15 +36,15 @@ var cards = [
         id: 9
     },
     {
-        img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/American_University_of_Armenia_-_Avedisian_Building_-_HDR.JPG/315px-American_University_of_Armenia_-_Avedisian_Building_-_HDR.JPG",
         id: 10
     },
     {
-        img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sublime-logo.png",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/American_University_of_Armenia.JPG/315px-American_University_of_Armenia.JPG",
         id: 11
     },
     {
-        img: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/wordpress-logo.png",
+        img: "http://aua.am/wp-content/uploads/2012/02/DSC_0985.jpg",
         id: 12
     },
 ];
@@ -55,7 +55,7 @@ var build= function()
     { 
         div += '<div class="card" data-num="'+ cardsArray[key].id +'"><div class="inside">\
         <div class="front"><img src="'+ cardsArray[key].img +'"\></div>\
-        <div class="back">  </div></div>\
+        <div class="back"> <img src="https://i.imgur.com/E18Xvmc.jpg"> </div></div>\
         </div>';
            
     };
